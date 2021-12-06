@@ -1,0 +1,39 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+        <div class="container">
+            <a class="navbar-brand" href="/products">Home</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdown"> 
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarDropdown">
+                <ul class="navbar-nav ms-auto">
+
+                    {% if user.is_authenticated %}
+                    
+                        <li class="nav-item">
+                            <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'change_password' %}" class="nav-link">Change Password</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Hoş geldin, {{ user.username }}</a>
+                        </li>
+
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'register' %}" class="nav-link">Register</a>
+                        </li>
+                    {% endif %}                   
+                    
+                     
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
