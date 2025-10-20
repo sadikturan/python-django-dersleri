@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    index.html
+{% endblock page_title %}
+   
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul>
+                {% for product in products %}
+                    {% if product.isActive %}
+                        <li>
+                            <a href={% url 'product_details' product.slug %}>
+                                {{ product.name }}
+                            </a>
+                            - {{ product.price }}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <hr>
+            <p> {{ product_count }} adet ürün bulundu. </p>
+            <p> {{ price.price__avg }} TL ortalama fiyat hesaplandı. </p>
+            <p> {{ price.price__min}} TL min fiyat hesaplandı. </p>
+            <p> {{ price.price__max }} TL max fiyat hesaplandı. </p>
+        </div>
+    </div>
+</div>
+  
+
+{% endblock %}
+
+
+{% block js_files %}
+    <script src="{% static 'js/script.js' %}""></script>
+{% endblock %}

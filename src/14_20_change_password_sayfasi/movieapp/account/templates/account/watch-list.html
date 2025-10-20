@@ -1,0 +1,103 @@
+{% extends 'movies/base.html' %} {% load static %} {% block css_files %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick.min.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick-theme.min.css' %}"
+/>
+
+{% endblock %} {% block page_title %} Index {% endblock %} {% block content %}
+
+<div id="wrapper">
+  {% include 'partials/_sidebar.html' %}
+
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      {% include 'partials/_topbar.html' %}
+      <div class="container-fluid">
+        {% include 'partials/_profile-topbar.html' %}
+        <div class="row">
+          <div class="col-xl-3 col-lg-3">
+            {% include 'partials/_profile-menu.html' %}
+          </div>
+          <div class="col-xl-9 col-lg-9">
+            <div class="bg-white p-3 widget shadow rounded mb-4">
+             
+                <div
+                  class="tab-pane fade active show"
+                  id="sidebar-1-4"
+                  role="tabpanel"
+                  aria-labelledby="sidebar-1-4">
+                  <div
+                    class="
+                      d-sm-flex
+                      align-items-center
+                      justify-content-between
+                      mb-3
+                    "
+                  >
+                    <h1 class="h5 mb-0 text-gray-900">Account Settings</h1>
+                  </div>
+                  <div class="row gutter-1">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="exampleInput8">Old Password</label>
+                        <input
+                          id="exampleInput8"
+                          type="password"
+                          class="form-control"
+                          placeholder="Password"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInput9">New Password</label>
+                        <input
+                          id="exampleInput9"
+                          type="password"
+                          class="form-control"
+                          placeholder="Password"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInput10">Retype New Password</label>
+                        <input
+                          id="exampleInput10"
+                          type="password"
+                          class="form-control"
+                          placeholder="Password"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <a href="#!" class="btn btn-primary">Save Changes</a>
+                    </div>
+                  </div>
+                </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelectorAll("#sidebar-1 .nav-link")[1]
+        .classList.add("active");
+    </script>
+    {% include 'partials/_footer.html' %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}
+    {{ category }}
+{% endblock  %}
+
+
+{% block content %}
+     
+    <h1>{{ category|title }}</h1>
+    {% if products|length > 0 %}    
+        <div>
+            {% for product in products %}
+                {{ product|title }}
+            {% endfor %}
+        </div>
+    {% else %}
+        {% include 'partials/_no_product.html' %}   
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'movies/base.html' %} 
+
+{% load static %} 
+
+{% block css_files %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick-theme.min.css' %}"/>
+
+{% endblock %} 
+
+{% block page_title %} Index {% endblock %} 
+
+{% block content %}
+
+<div id="wrapper">
+  {% include 'partials/_sidebar.html' %}
+
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      
+      {% include 'partials/_topbar.html' %}
+
+      <div class="container-fluid">
+        {% include 'partials/_slider.html' %}
+
+        <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-3">
+          <h1 class="h5 mb-0 text-gray-900">Movies</h1>
+          <a href="movies.html" class="d-none d-sm-inline-block text-xs"
+            >View All <i class="fas fa-eye fa-sm"></i
+          ></a>
+        </div>
+
+        <div class="row">
+        
+          {% for movie in movies %}
+            <div class="col-xl-3 col-md-6 mb-4">
+              {% include 'partials/_movie.html' %}
+            </div>
+          {% endfor %}
+         
+        </div>
+      </div>
+    </div>
+
+    {% include 'partials/_footer.html' %}
+  </div>
+</div>
+
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Select "Logout" below if you are ready to end your current session.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">
+          Cancel
+        </button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

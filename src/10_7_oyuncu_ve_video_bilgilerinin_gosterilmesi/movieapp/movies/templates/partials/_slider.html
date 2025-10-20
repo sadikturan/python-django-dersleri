@@ -1,0 +1,14 @@
+ {% load static %} 
+ 
+ <div class="osahan-slider">
+  
+    {% for slide in sliders %}
+    
+      <div class="osahan-slider-item">
+        <a href="{% url 'movie_details' slide.url %}">
+           <img src="{% static 'img/'|add:slide.slider_image %}" class="img-fluid rounded" alt="..."/>
+        </a>
+      </div>
+
+    {% endfor %}
+</div>

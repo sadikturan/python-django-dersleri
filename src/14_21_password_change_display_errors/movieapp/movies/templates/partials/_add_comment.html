@@ -1,0 +1,50 @@
+ {% load static %} 
+ <h5 class="card-title mb-4">Leave a Review</h5>
+                    <form action="{% url 'movie_details' movie.slug %}" method="POST" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                        <div class="control-group form-group col-lg-4 col-md-4">
+                          <div class="controls">
+                            {{ comment_form.full_name.errors }}
+                            <label>{{ comment_form.full_name.label }}<span class="text-danger">*</span></label>
+                            {{ comment_form.full_name }}
+                          </div>
+                        </div>
+                        <div class="control-group form-group col-lg-4 col-md-4">
+                          <div class="controls">
+                          {{ comment_form.email.errors }}
+                            <label
+                              >{{ comment_form.email.label }}
+                              <span class="text-danger">*</span></label
+                            >
+                            {{ comment_form.email }}
+                          </div>
+                        </div>
+                        <div class="control-group form-group col-lg-4 col-md-4">
+                          <div class="controls">
+                          {{ comment_form.rating.errors }}
+                            <label
+                              >{{ comment_form.rating.label }} <span class="text-danger">*</span></label
+                            >
+                           {{ comment_form.rating }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="control-group form-group">
+                        <div class="controls">
+                        {{ comment_form.text.errors }}
+                          <label
+                            >{{ comment_form.text.label }} <span class="text-danger">*</span></label
+                          >
+                          {{ comment_form.text }}
+                        </div>
+                      </div>
+
+
+
+                      <div class="text-right">
+                        <button type="submit" class="btn btn-primary">
+                          Send Message
+                        </button>
+                      </div>
+                    </form>

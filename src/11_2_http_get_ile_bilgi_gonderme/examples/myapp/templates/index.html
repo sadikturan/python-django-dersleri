@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    index.html
+{% endblock page_title %}
+   
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="list" method="GET">
+                Kelime : <input type="text" name="q">
+                <button type="submit">Submit</button>
+            </form>
+            <ul>
+                {% for product in products %}
+                    {% if product.isActive %}
+                        <li>
+                            <a href={% url 'product_details' product.slug %}>
+                                {{ product.name }}
+                            </a>
+                            - {{ product.price }}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+           
+        </div>
+    </div>
+</div>
+  
+
+{% endblock %}
+
+
+{% block js_files %}
+    <script src="{% static 'js/script.js' %}""></script>
+{% endblock %}

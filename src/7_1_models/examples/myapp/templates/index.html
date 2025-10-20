@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    index.html
+{% endblock page_title %}
+   
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% for category in categories %}
+                <a class="btn btn-primary" href="{% url "products_by_category" category %}"> {{ category }}</a> 
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+  
+
+{% endblock %}
+
+
+{% block js_files %}
+    <script src="{% static 'js/script.js' %}""></script>
+{% endblock %}

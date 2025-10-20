@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    {{ product.name }}
+{% endblock page_title %}
+   
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+           <p>
+            <strong>{{ product.name }}</strong> isimli ürünü silmek istediğinizden emin misiniz?
+            
+            <form action="{% url 'product_delete' product.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Evet</button>
+                <a href="{% url 'product_list' %}" class="btn btn-primary">Hayır</a>
+            </form>
+           </p>
+        </div>
+    </div>
+</div>
+  
+
+{% endblock %}
+
+
+{% block js_files %}
+    <script src="{% static 'js/script.js' %}""></script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}
+    index.html
+{% endblock page_title %}
+   
+{% block content %}
+<ul>
+    {% for category in categories %}
+        <li>
+            <a href="{% url "products_by_category" category %}"> {{ category }}</a> 
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

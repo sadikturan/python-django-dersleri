@@ -1,0 +1,486 @@
+{% extends 'movies/base.html' %} {% load static %} {% block css_files %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick.min.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick-theme.min.css' %}"
+/>
+
+{% endblock %} {% block page_title %} Index {% endblock %} {% block content %}
+
+<div id="wrapper">
+  {% include 'partials/_sidebar.html' %}
+
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      {% include 'partials/_topbar.html' %}
+
+      <div class="container-fluid">
+        {% include 'partials/profile-topbar.html' %}
+
+        <div class="row">
+          <div class="col-xl-3 col-lg-3">
+            {% include 'partials/profile-menu.html' %}
+          </div>
+          <div class="col-xl-9 col-lg-9">
+            <div class="bg-white p-3 widget shadow rounded mb-4">
+              <div
+                class="tab-pane fade active show"
+                id="sidebar-1-2"
+                role="tabpanel"
+                aria-labelledby="sidebar-1-2"
+              >
+                <div
+                  class="
+                    d-sm-flex
+                    align-items-center
+                    justify-content-between
+                    mb-3
+                  "
+                >
+                  <h1 class="h5 mb-0 text-gray-900">Watchlist</h1>
+                  <a href="movies.html" class="d-none d-sm-inline-block text-xs"
+                    >Showing 97 of 97 items</a
+                  >
+                </div>
+
+                <div class="row">
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 88%
+                            </h6>
+                            <small class="text-muted">23,421</small>
+                          </div>
+                          <img
+                            src="img/m1.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            Jumanji: The Next Level
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 50%
+                            </h6>
+                            <small class="text-muted">8,784</small>
+                          </div>
+                          <img
+                            src="img/m2.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            Gemini Man
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 20%
+                            </h6>
+                            <small class="text-muted">69,123</small>
+                          </div>
+                          <img
+                            src="img/m3.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            The Current War
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 74%
+                            </h6>
+                            <small class="text-muted">88,865</small>
+                          </div>
+                          <img
+                            src="img/m4.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            Charlie's Angels
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 50%
+                            </h6>
+                            <small class="text-muted">8,784</small>
+                          </div>
+                          <img
+                            src="img/m2.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            Gemini Man
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 20%
+                            </h6>
+                            <small class="text-muted">69,123</small>
+                          </div>
+                          <img
+                            src="img/m3.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            The Current War
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 74%
+                            </h6>
+                            <small class="text-muted">88,865</small>
+                          </div>
+                          <img
+                            src="img/m4.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            Charlie's Angels
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card m-card shadow border-0">
+                      <a href="movies-detail.html">
+                        <div class="m-card-cover">
+                          <div
+                            class="
+                              position-absolute
+                              bg-white
+                              shadow-sm
+                              rounded
+                              text-center
+                              p-2
+                              m-2
+                              love-box
+                            "
+                          >
+                            <h6 class="text-gray-900 mb-0 font-weight-bold">
+                              <i class="fas fa-heart text-danger"></i> 88%
+                            </h6>
+                            <small class="text-muted">23,421</small>
+                          </div>
+                          <img
+                            src="img/m1.jpg"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+                        <div class="card-body p-3">
+                          <h5 class="card-title text-gray-900 mb-1">
+                            Jumanji: The Next Level
+                          </h5>
+                          <p class="card-text">
+                            <small class="text-muted">English</small>
+                            <small class="text-danger"
+                              ><i
+                                class="fas fa-calendar-alt fa-sm text-gray-400"
+                              ></i>
+                              22 AUG</small
+                            >
+                          </p>
+                        </div>
+                        <div class="card-body pl-2 pr-2 pb-2 pt-0">
+                          <button class="btn btn-danger btn-block btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center mb-0 pb-0">
+                    <li class="page-item disabled">
+                      <a
+                        class="page-link"
+                        href="#"
+                        tabindex="-1"
+                        aria-disabled="true"
+                        >Previous</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll("#sidebar-1 .nav-link")[1].classList.add("active");
+    </script>
+
+    {% include 'partials/_footer.html' %}
+  </div>
+</div>
+
+{% endblock %}

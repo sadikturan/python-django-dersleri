@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    create.html
+{% endblock page_title %}
+   
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+          {% if error %}
+            <p>Lütfen formu eksiksiz doldurunuz.</p>
+          {% endif %}
+           <form action="create" method="POST">
+               {% csrf_token %}
+                <div class="mb-3">
+                    <label for="product_name">Name</label>
+                    <input type="text" name="product_name" class="form-control" id="product_name">
+                </div>
+                 <div class="mb-3">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" class="form-control" id="price">
+                </div>
+                <div class="mb-3">
+                    <label for="description">description</label>
+                    <textarea class="form-control" name="description"></textarea>
+                </div>
+                  <div class="mb-3">
+                    <label for="slug">Slug</label>
+                    <input type="text" name="slug" class="form-control" id="slug">
+                </div>
+           
+                <button type="submit" class="btn btn-primary">Submit</button>
+           </form>           
+           
+        </div>
+    </div>
+</div>
+  
+
+{% endblock %}
+
+
+{% block js_files %}
+    <script src="{% static 'js/script.js' %}""></script>
+{% endblock %}

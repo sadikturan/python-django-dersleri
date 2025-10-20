@@ -1,0 +1,96 @@
+{% load static %} 
+
+<nav class="navbar navbar-expand navbar-dark topbar mb-4 pl-0 static-top shadow">
+        <button
+          id="sidebarToggleTop"
+          class="btn btn-link d-md-none rounded-circle mr-3"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <form  class=" d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control bg-white border-0 small"
+              placeholder="Search for Movies, Events, Plays, Sports and Activities..."
+              aria-label="Search"
+              aria-describedby="basic-addon2"
+            />
+            <div class="input-group-append">
+              <button class="btn bg-white" type="button">
+                <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <ul class="navbar-nav ml-auto">
+
+
+          {% if user.is_authenticated %}
+               <li class="nav-item dropdown no-arrow">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="userDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.username }}</span>
+              {% if user.profile.avatar %}
+                <img class="img-profile rounded-circle" src="{{ user.profile.avatar.url }}" />
+              {% else %}
+                <img class="img-profile rounded-circle" src="{% static 'img/user.png' %}" />
+              {% endif %}
+
+            </a>
+
+            <div
+              class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              aria-labelledby="userDropdown"
+            >
+              <a class="dropdown-item" href="{% url 'profile' %}">
+                <i
+                  class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"
+                ></i>
+                Profile
+              </a>
+              <a class="dropdown-item" href="{% url 'watch_list' %}">
+                <i class="fas fa-heart fa-sm fa-fw mr-2 text-gray-400"></i>
+                Watchlist
+              </a>
+             
+              <a class="dropdown-item" href="{% url 'change_password' %}">
+                <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
+                Change Password
+              </a>
+              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#logoutModal"
+              >
+                <i
+                  class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                ></i>
+                Logout
+              </a>
+            </div>
+          </li>
+          {% else %}
+          
+            <li class="nav-item">
+              <a href="{% url 'login' %}" class="nav-link">Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'register' %}" class="nav-link">Register</a>
+            </li>
+          {% endif %}
+       
+        </ul>
+      </nav>

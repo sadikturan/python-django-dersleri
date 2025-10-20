@@ -1,0 +1,22 @@
+<div class="bg-white p-3 widget shadow rounded mb-4">
+  <div class="nav nav-pills flex-column lavalamp" id="sidebar-1" role="tablist">
+
+    <a class="nav-link" href="{% url 'profile' %}">
+      <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+    </a>
+
+    <a class="nav-link" href="{% url 'watch_list' %}">
+      <i class="fas fa-heart fa-sm fa-fw mr-2 text-gray-400"></i> Watchlist
+    </a>
+
+    <a class="nav-link" href="{% url 'change_password' %}">
+      <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i> Change Password</a>
+
+    <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+      Logout</a>
+
+  </div>
+</div>
+
+

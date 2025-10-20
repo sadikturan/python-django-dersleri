@@ -1,0 +1,62 @@
+{% extends 'movies/base.html' %} {% load static %} {% block css_files %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick.min.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick-theme.min.css' %}"
+/>
+
+{% endblock %} {% block page_title %} Index {% endblock %} {% block content %}
+
+<div id="wrapper">
+  {% include 'partials/_sidebar.html' %}
+
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      {% include 'partials/_topbar.html' %}
+
+      <div class="container-fluid">
+        {% include 'partials/profile-topbar.html' %}
+
+        <div class="row">
+          <div class="col-xl-3 col-lg-3">
+            {% include 'partials/profile-menu.html' %}
+          </div>
+          <div class="col-xl-9 col-lg-9">
+            <div class="bg-white p-3 widget shadow rounded mb-4">
+            <div id="sidebar-1-1">
+                  <div class=" d-sm-flex align-items-center justify-content-between mb-3">
+                    <h1 class="h5 mb-0 text-gray-900">Profile</h1>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col">
+                        <form method="POST" novalidate enctype="multipart/form-data">
+                          {% csrf_token %}
+                          {{ user_form.as_p }}
+                          {{ profile_form.as_p }}
+                          <button class="btn btn-primary" type="submit">Kaydet</button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll("#sidebar-1 .nav-link")[0].classList.add("active");
+    </script>
+
+    {% include 'partials/_footer.html' %}
+  </div>
+</div>
+
+{% endblock %}

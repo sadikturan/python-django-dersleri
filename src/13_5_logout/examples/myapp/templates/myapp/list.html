@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    list.html
+{% endblock page_title %}
+   
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        {% for product in products %}
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{ product.image.url }}" alt="" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <a href="{% url 'product_edit' product.id %}" class="btn btn-primary btn-sm">edit</a>
+                            <a href="{% url 'product_delete' product.id %}" class="btn btn-danger btn-sm">delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+  
+
+{% endblock %}
+
+
+{% block js_files %}
+    <script src="{% static 'js/script.js' %}""></script>
+{% endblock %}

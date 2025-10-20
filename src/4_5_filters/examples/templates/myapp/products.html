@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category }}</title>
+</head>
+<body>
+    <h1>{{ category|title }}</h1>
+    <p>{{ now|date:"D d M Y" }}</p>
+    <p>{{ now|date:"SHORT_DATE_FORMAT" }}</p>
+    <p>{{ now|date:"D d M Y" }} {{ now|time:"H:i" }}</p>
+
+
+    {% if products|length > 0 %}
+    
+        <div>
+            {% for product in products %}
+                {{ product|title }}
+            {% endfor %}
+        </div>
+
+    {% else %}
+
+        <div>
+            No products
+        </div>
+    
+    {% endif %}
+
+</body>
+</html>

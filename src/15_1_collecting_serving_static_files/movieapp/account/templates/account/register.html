@@ -1,0 +1,90 @@
+{% extends 'movies/base.html' %} {% load static %} {% block css_files %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick.min.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'vendor/slick/slick-theme.min.css' %}"
+/>
+
+{% endblock %} {% block page_title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <div class="row">
+        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+        <div class="col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+            </div>
+
+
+            <form class="user" method="POST" novalidate>
+              {% csrf_token %}
+                  <ul class="errorlist">
+                    {% for error in form.non_field_errors %}
+                      <li>
+                        {{ error }}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      {{ form.first_name.errors }}
+                      {{ form.first_name }}
+                    </div>
+                    <div class="col-sm-6">
+                      {{ form.last_name.errors }}
+                      {{ form.last_name }}
+                    </div>
+                </div>
+              <div class="form-group">
+                {{ form.email.errors }}
+                {{ form.email }}
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                 {{ form.password1.errors }}
+                {{ form.password1 }}
+                </div>
+                <div class="col-sm-6">
+                  {{ form.password2.errors }}
+                  {{ form.password2 }}
+                </div>
+              </div>
+             <input type="submit" class="btn btn-primary btn-user btn-block" value="Register User">
+            </form>
+
+
+
+            <hr />
+            <div class="text-center">
+              <a class="small" href="forgot-password.html">Forgot Password?</a>
+            </div>
+            <div class="text-center">
+              <a class="small" href="login.html"
+                >Already have an account? Login!</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ {% endblock %}
+
+ {% block js_files %}
+    <script>
+        document.querySelector('body').classList.add('bg-gradient-primary')
+    </script>    
+ {% endblock %}

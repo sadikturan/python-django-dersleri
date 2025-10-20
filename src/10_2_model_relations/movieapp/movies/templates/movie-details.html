@@ -1,0 +1,721 @@
+{% extends 'movies/base.html' %} 
+
+{% load static %} 
+{% block css_files %} {%endblock %} 
+
+{% block page_title %} Movies {% endblock %} 
+
+{% block content %}
+
+<div id="wrapper">
+  {% include 'partials/_sidebar.html' %}
+
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+     {% include 'partials/_topbar.html' %}
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12">
+            <div class="cover-pic">
+              <div class="position-absolute bg-white shadow-sm rounded text-center p-2 m-4 love-box">
+                <h6 class="text-gray-900 mb-0 font-weight-bold">
+                  <i class="fas fa-heart text-danger"></i> 50%
+                </h6>
+                <small class="text-muted">8,784</small>
+              </div>
+              <img src="{% static 'img/'|add:movie.coverImage %}" class="img-fluid" alt="..." />
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3">
+            <div class="bg-white p-3 widget shadow rounded mb-4">
+              <img src="{% static 'img/'|add:movie.imageUrl %}" class="img-fluid rounded" alt="..." />
+              <h1 class="h6 mb-0 mt-3 font-weight-bold text-gray-900">
+                Director
+              </h1>
+              <p>Jon Watts</p>
+              <h1 class="h6 mb-0 mt-3 font-weight-bold text-gray-900">
+                Writers
+              </h1>
+              <p>Erik Sommers,Stan Lee,Chris McKenna</p>
+              <h1 class="h6 mb-0 mt-3 font-weight-bold text-gray-900">Cast</h1>
+              <p>Tom Holland,Jake Gyllenhaal,Zendaya</p>
+              <h1 class="h6 mb-0 mt-3 font-weight-bold text-gray-900">Plot</h1>
+              <p class="mb-0">
+                Peter Parker and his friends go on a summer trip to Europe.
+                However, they will hardly be able to rest - Peter.
+              </p>
+            </div>
+          </div>
+          <div class="col-xl-9 col-lg-9">
+            <div class="bg-white info-header shadow rounded mb-4">
+              <div
+                class="row d-flex align-items-center justify-content-between p-3 border-bottom">
+                <div class="col-lg-7 m-b-4">
+                  <h3 class="text-gray-900 mb-0 mt-0 font-weight-bold">
+                    {{ movie.title }}
+                  </h3>
+                  <p class="mb-0 text-gray-800">
+                    <small class="text-muted"
+                      ><i class="fas fa-film fa-fw fa-sm mr-1"></i> Action /
+                      Adventure / Science Fiction / 3D</small>
+                  </p>
+                </div>
+                <div class="col-lg-5 text-right">
+                  <a
+                    href="#"
+                    class="d-sm-inline-block btn btn-primary shadow-sm"
+                    ><i class="fas fa-share-alt"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="d-sm-inline-block btn btn-danger shadow-sm"
+                  >
+                    Add to Watchlist <i class="fas fa-plus fa-sm ml-1"></i
+                  ></a>
+                </div>
+              </div>
+              <div
+                class="row d-flex align-items-center justify-content-between py-3 px-4">
+                <div class="col-lg-6 m-b-4">
+                  <p class="mb-0 text-gray-900">
+                    <i class="fas fa-money-bill fa-sm fa-fw mr-1"></i> BUDGET -
+                    <span class="text-white rounded px-2 py-1 bg-info">$160,000,000</span>
+                  </p>
+                </div>
+                <div class="col-lg-6 text-right">
+                  <a href="#" class="btn btn-sm btn-primary btn-circle">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#" class="btn btn-sm btn-danger btn-circle">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                  <a href="#" class="btn btn-sm btn-warning btn-circle">
+                    <i class="fab fa-snapchat-ghost"></i>
+                  </a>
+                  <a href="#" class="btn btn-sm btn-info btn-circle">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white p-3 widget shadow rounded mb-4">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    id="home-tab"
+                    data-toggle="tab"
+                    href="#home"
+                    role="tab"
+                    aria-controls="home"
+                    aria-selected="true"
+                    >Summary</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="profile-tab"
+                    data-toggle="tab"
+                    href="#profile"
+                    role="tab"
+                    aria-controls="profile"
+                    aria-selected="false"
+                    >Cast
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="videos-tab"
+                    data-toggle="tab"
+                    href="#videos"
+                    role="tab"
+                    aria-controls="videos"
+                    aria-selected="false"
+                    >Videos
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="contact-tab"
+                    data-toggle="tab"
+                    href="#contact"
+                    role="tab"
+                    aria-controls="contact"
+                    aria-selected="false"
+                    >Reviews</a
+                  >
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div
+                  class="tab-pane fade active show"
+                  id="home"
+                  role="tabpanel"
+                  aria-labelledby="home-tab"
+                >
+                  <h5 class="mt-0 mb-3">New Year's Eve on the Waterfront</h5>
+                  <p>
+                    Boston Harbor Now in partnership with the Friends of
+                    Christopher Columbus Park, the Wharf District Council and
+                    the City of Boston is proud to announce the New Year's Eve
+                    Midnight Harbor Fireworks! This beloved nearly 40-year old
+                    tradition is made possible by the generous support of local
+                    waterfront organizations and businesses and the support of
+                    the City of Boston and the Office of Mayor Marty Walsh.
+                  </p>
+                  <p>
+                    Join us as we ring in the New Year with a dazzling display
+                    over Boston Harbor. Public viewing is free and available
+                    from the Harborwalk of these suggested viewing locations:
+                  </p>
+                  <ul>
+                    <li>Christopher Columbus Park, North End</li>
+                    <li>Fan Pier, Seaport District</li>
+                    <li>East Boston Harborwalk</li>
+                  </ul>
+                  <p>The show will begin promptly at midnight.</p>
+                  <p>
+                    Register here for a reminder and updates about the harbor
+                    fireworks and other waterfront public programs as they
+                    become available. Be the first to be notified for popular
+                    waterfront New Year's Eve public activities.
+                  </p>
+                  <p class="mb-2">
+                    Register here for a reminder and updates about the harbor
+                    fireworks and other waterfront public programs as they
+                    become available. Be the first to be notified for popular
+                    waterfront New Year's Eve public activities.
+                  </p>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="profile"
+                  role="tabpanel"
+                  aria-labelledby="profile-tab"
+                >
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-4">
+                      <h5 class="h6 mt-0 mb-3 font-weight-bold text-gray-900">
+                        CAST
+                      </h5>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="{% static 'img/s1.png' %}"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Carla Gugino</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="{% static 'img/s2.png' %}"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Sylvester Stallone</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s3.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Rose Byrne</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s4.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Jason Statham</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4">
+                      <h5 class="h6 mt-0 mb-3 font-weight-bold text-gray-900">
+                        CREW
+                      </h5>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s3.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Rose Byrne</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s4.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Jason Statham</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s1.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Carla Gugino</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s2.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Sylvester Stallone</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4">
+                      <h5 class="h6 mt-0 mb-3 font-weight-bold text-gray-900">
+                        Support
+                      </h5>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s1.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Carla Gugino</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s2.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Sylvester Stallone</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s3.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Rose Byrne</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="artist-list mb-3">
+                        <a class="d-flex align-items-center" href="#">
+                          <div class="dropdown-list-image mr-3">
+                            <img
+                              class="rounded-circle"
+                              src="img/s4.png"
+                              alt=""
+                            />
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate">Jason Statham</div>
+                            <div class="small text-gray-500">Acting</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="videos"
+                  role="tabpanel"
+                  aria-labelledby="videos-tab"
+                >
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="mb-4">
+                        <iframe
+                          width="100%"
+                          height="215"
+                          src="https://www.youtube.com/embed/uNppTCoYdWI"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen=""
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="mb-4">
+                        <iframe
+                          width="100%"
+                          height="215"
+                          src="https://www.youtube.com/embed/XkT6uwHFUKY"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen=""
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="mb-4">
+                        <iframe
+                          width="100%"
+                          height="215"
+                          src="https://www.youtube.com/embed/uNppTCoYdWI"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen=""
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="mb-4">
+                        <iframe
+                          width="100%"
+                          height="215"
+                          src="https://www.youtube.com/embed/XkT6uwHFUKY"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen=""
+                        ></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="contact"
+                  role="tabpanel"
+                  aria-labelledby="contact-tab"
+                >
+                  <div class="card-body p-0 reviews-card">
+                    <div class="media mb-4">
+                      <img
+                        class="d-flex mr-3 rounded-circle"
+                        src="img/s1.png"
+                        alt=""
+                      />
+                      <div class="media-body">
+                        <div class="mt-0 mb-1">
+                          <span class="h6 mr-2 font-weight-bold text-gray-900"
+                            >Stave Martin</span
+                          >
+                          <span
+                            ><i class="fa fa-calendar"></i> Feb 12, 2018</span
+                          >
+                          <div class="stars-rating float-right">
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <span class="rounded bg-warning text-dark pl-1 pr-1"
+                              >5/3</span
+                            >
+                          </div>
+                        </div>
+                        <p>
+                          Cras sit amet nibh libero, in gravida nulla. Nulla vel
+                          metus scelerisque ante sollicitudin. Cras purus odio,
+                          vestibulum in vulputate at, tempus viverra turpis.
+                          Fusce condimentum nunc ac nisi vulputate fringilla.
+                          Donec lacinia congue felis in faucibus.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="media">
+                      <img
+                        class="d-flex mr-3 rounded-circle"
+                        src="img/s2.png"
+                        alt=""
+                      />
+                      <div class="media-body">
+                        <div class="mt-0 mb-1">
+                          <span class="h6 mr-2 font-weight-bold text-gray-900"
+                            >Mark Smith</span
+                          >
+                          <span
+                            ><i class="fa fa-calendar"></i> Feb 12, 2018</span
+                          >
+                          <div class="stars-rating float-right">
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <span class="rounded bg-warning text-dark pl-1 pr-1"
+                              >5/3</span
+                            >
+                          </div>
+                        </div>
+                        <p>
+                          Cras sit amet nibh libero, in gravida nulla. Nulla vel
+                          metus scelerisque ante sollicitudin. Cras purus odio,
+                          vestibulum in vulputate at, tempus viverra turpis.
+                          Fusce condimentum nunc ac nisi vulputate fringilla.
+                          Donec lacinia congue felis in faucibus.
+                        </p>
+                        <div class="media mt-4">
+                          <img
+                            class="d-flex mr-3 rounded-circle"
+                            src="img/s3.png"
+                            alt=""
+                          />
+                          <div class="media-body">
+                            <div class="mt-0 mb-1">
+                              <span
+                                class="h6 mr-2 font-weight-bold text-gray-900"
+                                >Ryan Printz</span
+                              >
+                              <span
+                                ><i class="fa fa-calendar"></i> Feb 12,
+                                2018</span
+                              >
+                              <div class="stars-rating float-right">
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <span
+                                  class="rounded bg-warning text-dark pl-1 pr-1"
+                                  >5/3</span
+                                >
+                              </div>
+                            </div>
+                            <p>
+                              Cras sit amet nibh libero, in gravida nulla. Nulla
+                              vel metus scelerisque ante sollicitudin. Cras
+                              purus odio, vestibulum in vulputate at, tempus
+                              viverra turpis. Fusce condimentum nunc ac nisi
+                              vulputate fringilla. Donec lacinia congue felis in
+                              faucibus.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media mt-4">
+                      <img
+                        class="d-flex mr-3 rounded-circle"
+                        src="img/s4.png"
+                        alt=""
+                      />
+                      <div class="media-body">
+                        <div class="mt-0 mb-1">
+                          <span class="h6 mr-2 font-weight-bold text-gray-900"
+                            >Stave Mark</span
+                          >
+                          <span
+                            ><i class="fa fa-calendar"></i> Feb 12, 2018</span
+                          >
+                          <div class="stars-rating float-right">
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <span class="rounded bg-warning text-dark pl-1 pr-1"
+                              >5/3</span
+                            >
+                          </div>
+                        </div>
+                        <p class="mb-0">
+                          Cras sit amet nibh libero, in gravida nulla. Nulla vel
+                          metus scelerisque ante sollicitudin. Cras purus odio,
+                          vestibulum in vulputate at, tempus viverra turpis.
+                          Fusce condimentum nunc ac nisi vulputate fringilla.
+                          Donec lacinia congue felis in faucibus.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-4 bg-light rounded mt-4">
+                    <h5 class="card-title mb-4">Leave a Review</h5>
+                    <form name="sentMessage">
+                      <div class="row">
+                        <div class="control-group form-group col-lg-4 col-md-4">
+                          <div class="controls">
+                            <label
+                              >Your Name
+                              <span class="text-danger">*</span></label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              required=""
+                            />
+                          </div>
+                        </div>
+                        <div class="control-group form-group col-lg-4 col-md-4">
+                          <div class="controls">
+                            <label
+                              >Your Email
+                              <span class="text-danger">*</span></label
+                            >
+                            <input
+                              type="email"
+                              class="form-control"
+                              required=""
+                            />
+                          </div>
+                        </div>
+                        <div class="control-group form-group col-lg-4 col-md-4">
+                          <div class="controls">
+                            <label
+                              >Rating <span class="text-danger">*</span></label
+                            >
+                            <select class="form-control custom-select">
+                              <option>1 Star</option>
+                              <option>2 Star</option>
+                              <option>3 Star</option>
+                              <option>4 Star</option>
+                              <option>5 Star</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="control-group form-group">
+                        <div class="controls">
+                          <label
+                            >Review <span class="text-danger">*</span></label
+                          >
+                          <textarea
+                            rows="3"
+                            cols="100"
+                            class="form-control"
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <button type="submit" class="btn btn-primary">
+                          Send Message
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   {% include 'partials/_footer.html' %}
+  </div>
+</div>
+
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Select "Logout" below if you are ready to end your current session.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">
+          Cancel
+        </button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

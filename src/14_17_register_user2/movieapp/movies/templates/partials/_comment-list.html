@@ -1,0 +1,20 @@
+   {% load static %} 
+   {% load filters %}
+
+   {% for comment in comments %}
+    <div class="media mb-4">
+      <img class="d-flex mr-3 rounded-circle" src="{% static 'img/s2.png' %}" alt="" />
+      <div class="media-body">
+        <div class="mt-0 mb-1">
+          <span class="h6 mr-2 font-weight-bold text-gray-900">{{ comment.full_name }}</span>
+          <span><i class="fa fa-calendar"></i> {{ comment.date_added }}</span>
+          <div class="stars-rating float-right">
+            {{ comment.rating|display_rating|safe }}            
+          </div>
+        </div>
+        <p>
+          {{ comment.text }}
+        </p>
+      </div>
+    </div>    
+  {% endfor %}
