@@ -1,9 +1,5 @@
 
-# [Python Django ile Sıfırdan İleri Seviyeye Web Geliştirme](https://www.udemy.com/course/python-django-dersleri/?referralCode=55F7C66D793B9748D5D4)
-
 ## **Python Django kullanarak modern, dinamik ve güçlü web uygulamaları geliştirmeyi adım adım öğrenin. Gerçek projelerle!**
-
-### **Django ile profesyonel web geliştirmenin tüm aşamalarını adım adım öğrenin!**
 
 Bu kapsamlı **Django eğitimi**, dünyanın en popüler programlama dillerinden biri olan **Python** ile güçlü, ölçeklenebilir ve dinamik web uygulamaları geliştirmeyi öğretir.  
 Hiçbir deneyiminiz olmasa bile, bu kursla **sıfırdan başlayarak** ileri seviyede **Django geliştiricisi** olabilirsiniz.
