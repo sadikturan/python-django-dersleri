@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock %}
+
+
+{% block title%} Homepage{% endblock %}
+
+{% block content %}
+
+<h1>Homepage</h1>
+
+<img src="{% static 'img/django.png' %}" alt="" width="100">
+
+{% endblock %}

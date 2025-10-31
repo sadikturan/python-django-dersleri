@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock %}
+
+
+{% block title%} Homepage{% endblock %}
+
+{% block content %}
+
+<h1>Homepage</h1>
+
+{% endblock %}
+
+{% block js_files %} 
+    <script src="{% static 'blog/js/script.js' %}"></script>
+{% endblock %}

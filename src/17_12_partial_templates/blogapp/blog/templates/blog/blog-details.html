@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title%} Blog Details {% endblock %}
+
+{% block content %}
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3">
+                {% include 'partials/_categories.html' %}
+            </div>
+            <div class="col-9">
+                <h1>Blog Details: {{ id }}</h1>
+            
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+ 
